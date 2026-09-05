@@ -1,51 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Saint Omen</title>
-	<meta name="viewport" content="width=device-width, intial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saint Omen</title>
+<link rel="stylesheet" href="style.css">
 </head>
+<script>
+function openMenu(){
+    document.getElementById("menu").style.right="0";
+}
 
+function closeMenu(){
+    document.getElementById("menu").style.right="-100%";
+}
+</script>
+<div class="bottom-nav">
+    <a href="index.html">🏠<span>Home</span></a>
+    <a href="tshirts.html">👕<span>Shop</span></a>
+    <a href="cart.html">🛒<span>Cart</span></a>
+</div>
+<script>
+window.onload = function(){
+
+setTimeout(function(){
+
+document.getElementById("loader").style.opacity="0";
+
+setTimeout(function(){
+
+document.getElementById("loader").style.display="none";
+
+},500);
+
+},1800);
+
+}
+</script>
 <body>
-
-    <nav>
-        <div class="logo">SAINT OMEN</div>
-        <div class="menu">
-            <a href="#">SHOP</a>
-            <a href="#">ABOUT</a>
-            <a href="#">CONTACT</a>
-        </div>
-    </nav>
-
-    <div class="hero">
+<div id="loader">
+    <div class="loader-content">
         <h1>SAINT OMEN</h1>
-        <p>The Uniform of the Uncommon.</p>
         <p>EST 2026</p>
-		<button class="enter-bth">SHOP NOW</button>
     </div>
-<section class="categories">
-<section class="categories">
+</div>
+<nav>
+	<nav>
+    <div class="logo">SAINT OMEN</div>
 
-    <div class="category">
-        <img src="capcover.jpg" alt="Saint Omen Caps">
-        <h2>CAPS</h2>
-  <a href="caps.html" class="shop-link"
-  <botton>SHOP CAPS</botton>
+    <button class="menu-btn" onclick="openMenu()">☰</button>
+</nav>
+
+<div id="menu" class="menu-screen">
+
+    <button class="close-btn" onclick="closeMenu()">✕</button>
+
+    <a href="index.html">HOME</a>
+    <a href="tshirts.html">T-SHIRTS</a>
+    <a href="cart.html">CART</a>
+    <a href="#">ABOUT</a>
+
+    <div class="menu-footer">
+        EST 2026
     </div>
 
-    <div class="category">
-        <img src="tshirt cover.jpg" alt="Saint Omen T-Shirts">
-        <h2>T-SHIRTS</h2>
-		<a href="tshirts.html" class="shop-link">
+</div>
+
+<section class="hero">
+    <h1>SAINT OMEN</h1>
+    <p>The Uniform of the Uncommon.</p>
+
+    <a href="tshirts.html">
         <button>SHOP T-SHIRTS</button>
-    </div>
-
+    </a>
 </section>
 
-    
-
-    
-
-</section>
 </body>
 </html>

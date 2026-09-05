@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Saint Omen | T-Shirts</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saint Omen | T-Shirts</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -10,57 +12,139 @@
 <nav>
     <div class="logo">SAINT OMEN</div>
 
-    <div class="menu">
-        <a href="index.html">HOME</a>
-        <a href="caps.html">CAPS</a>
-    </div>
+    <a href="cart.html" class="cart-link">
+        🛒 <span id="cartCount">0</span>
+    </a>
 </nav>
 
-<div class="hero" style="background:url('tshirt cover.jpg'); background-size:cover; background-position:center;">
-    <h1>T-SHIRTS</h1>
-    <p>The Uniform of the Uncommon.</p>
+<h2 class="collection-title">T-SHIRTS</h2>
+
+<div class="product">
+
+    <a href="virginmary.html">
+
+        <img src="h1.jpg" class="main-img">
+
+    </a>
+
+    <h3>VIRGIN MARY TEE</h3>
+
+    <p class="price">R300</p>
+
 </div>
+   
 
-<section class="products">
+   
 
-    <div class="product">
-        <img src="h1.jpg" alt="Virgin Mary Tee" class="main-img">
-
-        <div class="gallery">
-            <img src="h1.jpg" alt="">
-            <img src="h2.png" alt="">
-            <img src="h3.png" alt="">
+        
+        <div class="sizes" data-product="Virgin Mary Tee" data-price="300">
+            <button onclick="selectSize(this)">S</button>
+            <button onclick="selectSize(this)">M</button>
+            <button onclick="selectSize(this)">L</button>
         </div>
 
-        <h3>VIRGIN MARY TEE</h3>
-        <p>R300</p>
+        <button class="cart-btn" onclick="addToCart('Virgin Mary Tee',300,this)">
+            ADD TO CART
+        </button>
 
-        <div class="sizes">
-            <button>S</button>
-            <button>M</button>
-            <button>L</button>
-        </div>
     </div>
 
     <div class="product">
-        <img src="a1.png" alt="Black Camo Tee" class="main-img">
+
+        <img id="camoMain" src="a1.png" class="main-img">
 
         <div class="gallery">
-            <img src="a1.png" alt="">
-            <img src="a2.png" alt="">
+            <img src="a1.png" onclick="changeCamo('a1.png',this)" class="active-thumb">
+            <img src="a2.png" onclick="changeCamo('a2.png',this)">
         </div>
 
         <h3>BLACK CAMO TEE</h3>
-        <p>R250</p>
 
-        <div class="sizes">
-            <button>S</button>
-            <button>M</button>
-            <button>L</button>
+        <p class="price">R250</p>
+
+        <div class="sizes" data-product="Black Camo Tee" data-price="250">
+            <button onclick="selectSize(this)">S</button>
+            <button onclick="selectSize(this)">M</button>
+            <button onclick="selectSize(this)">L</button>
         </div>
+
+        <button class="cart-btn" onclick="addToCart('Black Camo Tee',250,this)">
+            ADD TO CART
+        </button>
+
     </div>
 
-</section>
+</div>
+
+<script>
+
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+
+updateCart();
+
+function updateCart(){
+document.getElementById("cartCount").innerText=cart.length;
+localStorage.setItem("cart",JSON.stringify(cart));
+}
+
+function selectSize(btn){
+
+let parent=btn.parentElement;
+
+parent.querySelectorAll("button").forEach(b=>b.classList.remove("selected"));
+
+btn.classList.add("selected");
+
+parent.dataset.size=btn.innerText;
+
+}
+
+function addToCart(name,price,button){
+
+let size=button.previousElementSibling.dataset.size;
+
+if(!size){
+
+alert("Select a size first.");
+
+return;
+
+}
+
+cart.push({name,price,size});
+
+updateCart();
+
+alert("Added to cart.");
+
+}
+
+function changeVirgin(img,thumb){
+
+virginMain.src=img;
+
+document.querySelectorAll(".product:first-child .gallery img").forEach(i=>i.classList.remove("active-thumb"));
+
+thumb.classList.add("active-thumb");
+
+}
+
+function changeCamo(img,thumb){
+
+camoMain.src=img;
+
+document.querySelectorAll(".product:nth-child(2) .gallery img").forEach(i=>i.classList.remove("active-thumb"));
+
+thumb.classList.add("active-thumb");
+
+}
+
+</script>
+<div class="bottom-nav">
+    <a href="index.html">🏠<span>Home</span></a>
+    <a href="tshirts.html">👕<span>Shop</span></a>
+    <a href="cart.html">🛒<span>Cart</span></a>
+</div>
 
 </body>
 </html>

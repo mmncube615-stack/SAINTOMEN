@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Virgin Mary Tee | Saint Omen</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">SAINT OMEN</div>
+    <a href="cart.html" class="cart-link">🛒</a>
+</nav>
+
+<div class="product-page">
+
+    <img id="mainProduct" src="h1.jpg" class="product-main">
+
+    <div class="gallery-large">
+        <img src="h1.jpg" onclick="changeImage('h1.jpg',this)" class="active-thumb">
+        <img src="h2.png" onclick="changeImage('h2.png',this)">
+        <img src="h3.png" onclick="changeImage('h3.png',this)">
+    </div>
+
+    <h1>VIRGIN MARY TEE</h1>
+
+    <p class="price">R300</p>
+
+    <p class="description">
+        Oversized premium Saint Omen tee featuring the Virgin Mary artwork.
+        The Uniform of the Uncommon.
+    </p>
+
+    <div class="sizes">
+        <button onclick="selectSize(this)">S</button>
+        <button onclick="selectSize(this)">M</button>
+        <button onclick="selectSize(this)">L</button>
+    </div>
+
+    <button class="cart-btn" onclick="addToCart()">
+        ADD TO CART
+    </button>
+
+</div>
+
+<script>
+
+let selectedSize="";
+
+function selectSize(btn){
+
+document.querySelectorAll(".sizes button").forEach(b=>b.classList.remove("selected"));
+
+btn.classList.add("selected");
+
+selectedSize=btn.innerText;
+
+}
+
+function changeImage(img,thumb){
+
+mainProduct.src=img;
+
+document.querySelectorAll(".gallery-large img").forEach(i=>i.classList.remove("active-thumb"));
+
+thumb.classList.add("active-thumb");
+
+}
+
+function addToCart(){
+
+if(selectedSize===""){
+
+alert("Select a size.");
+
+return;
+
+}
+
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+
+cart.push({
+name:"Virgin Mary Tee",
+price:300,
+size:selectedSize
+});
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+window.location.href="cart.html";
+
+}
+
+</script>
+<section class="related">
+
+<h2>YOU MAY ALSO LIKE</h2>
+
+<a href="blackcamo.html" class="related-card">
+
+<img src="a1.png">
+
+<h3>BLACK CAMO TEE</h3>
+
+<p>R250</p>
+
+</a>
+
+</section>
+
+</body>
+<a href="tshirts.html" class="back-btn">← Back</a>
+</html>

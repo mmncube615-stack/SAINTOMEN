@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saint Omen | Cart</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">SAINT OMEN</div>
+</nav>
+
+<h2 class="collection-title">YOUR CART</h2>
+
+<div id="cartItems"></div>
+
+<button class="cart-btn" onclick="checkout()">CHECKOUT ON WHATSAPP</button>
+
+<script>
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let container = document.getElementById("cartItems");
+let total = 0;
+
+cart.forEach((item, index) => {
+
+    total += item.price;
+
+    container.innerHTML += `
+    <div class="product">
+
+        <h3>${item.name}</h3>
+
+        <p>Size: ${item.size}</p>
+
+        <p class="price">R${item.price}</p>
+
+        <button class="remove-btn" onclick="removeItem(${index})">
+            🗑️ REMOVE
+        </button>
+
+    </div>
+    `;
+
+});
+
+container.innerHTML += `
+<h2 style="text-align:center;padding:20px;">
+TOTAL: R${total}
+</h2>
+`;
+
+function removeItem(index){
+
+    cart.splice(index,1);
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    location.reload();
+
+}
+
+function checkout(){
+
+    let message = "Hi Saint Omen,%0A%0AI'd like to order:%0A";
+
+    cart.forEach(item => {
+
+        message += `- ${item.name} (${item.size}) - R${item.price}%0A`;
+
+    });
+
+    message += `%0ATotal: R${total}`;
+
+    window.open("https://wa.me/27833850397?text=" + message);
+
+}
+
+</script>
+<div class="bottom-nav">
+    <a href="index.html">🏠<span>Home</span></a>
+    <a href="tshirts.html">👕<span>Shop</span></a>
+    <a href="cart.html">🛒<span>Cart</span></a>
+</div>
+
+</body>
+</html>
