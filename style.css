@@ -259,3 +259,63 @@ p{
     color:black;
     border-color:white;
 }
+/* MOBILE FIX */
+
+@media (max-width:768px){
+
+nav{
+    padding:15px 20px;
+}
+
+.logo{
+    font-size:18px;
+}
+
+.menu a{
+    margin-left:12px;
+    font-size:12px;
+}
+
+.hero{
+    padding:30px;
+    justify-content:flex-end;
+}
+
+.hero h1{
+    font-size:42px;
+    letter-spacing:3px;
+}
+
+.hero p{
+    font-size:14px;
+}
+
+.categories{
+    flex-direction:column;
+    align-items:center;
+    padding:40px 20px;
+}
+
+.category{
+    width:100%;
+    max-width:320px;
+}
+
+.products{
+    grid-template-columns:1fr;
+    padding:30px 20px;
+}
+
+.product img{
+    height:350px;
+}
+
+.main-img{
+    height:350px;
+}
+
+.gallery img{
+    width:55px;
+    height:55px;
+}
+}
