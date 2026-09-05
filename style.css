@@ -1,0 +1,261 @@
+body{
+    margin:0;
+    background:#000;
+    color:white;
+    font-family:Arial, sans-serif;
+}
+
+.hero{
+    height:100vh;
+    background:
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.75)),
+        url("frame-00-13-74.png");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    flex-direction:column;
+    justify-content:end;
+    align-items:flex-start;
+    text-align:left;
+    padding:80px;
+    box-sizing:border-box;
+}
+    
+}
+    
+}
+
+h1{
+    font-size:70px;
+    letter-spacing:5px;
+}
+
+p{
+    font-size:20px;
+    color:#d0d0d0;
+}nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 50px;
+    box-sizing:border-box;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    font-size:14px;
+}
+.enter-btn{
+    margin-top:25px;
+    padding:15px 35px;
+    background:transparent;
+    color:white;
+    border:2px solid white;
+    font-size:15px;
+    letter-spacing:2px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.enter-btn:hover{
+    background:white;
+    color:black;
+}.categories{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    padding:70px 40px;
+    background:#0a0a0a;
+    flex-wrap:wrap;
+}
+
+.category{
+    width:320px;
+    padding:50px 30px;
+    border:1px solid #222;
+    text-align:center;
+    transition:0.3s;
+}
+
+.category:hover{
+    border-color:white;
+}
+
+.category h2{
+    font-size:32px;
+    letter-spacing:3px;
+    margin-bottom:15px;
+}
+
+.category p{
+    color:#aaa;
+}.categories{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    padding:80px 40px;
+    background:#050505;
+    flex-wrap:wrap;
+}
+.category{
+    width:260px;
+    background:#111;
+    overflow:hidden;
+    transition:0.4s;
+    border:1px solid #222;
+}
+
+.category img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    display:block;
+}
+
+
+.category h2{
+    text-align:center;
+    font-size:32px;
+    letter-spacing:4px;
+    margin:20px 0;
+}
+
+.category button{
+    width:100%;
+    padding:18px;
+    border:none;
+    background:#7A0C14;
+    color:white;
+    font-weight:bold;
+    letter-spacing:2px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.category button:hover{
+    background:white;
+    color:black;
+}
+
+.category:hover{
+    transform:translateY(-8px);
+}
+/* CAPS PAGE */
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    padding:60px 40px;
+}
+
+.product{
+    background:#111;
+    border:1px solid #222;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.product:hover{
+    transform:translateY(-6px);
+    border-color:white;
+}
+
+.product img{
+    width:100%;
+    height:280px;
+    object-fit:cover;
+    transition:.4s;
+}
+
+.product:hover img{
+    transform:scale(1.05);
+}
+
+.product h3{
+    text-align:center;
+    font-size:16px;
+    letter-spacing:2px;
+    padding:15px 10px 5px;
+    margin:0;
+}
+
+.product p{
+    text-align:center;
+    color:#d0d0d0;
+    padding-bottom:18px;
+    margin:0;
+}
+
+.unreleased{
+    color:#8B0000;
+    font-weight:bold;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+/* T-SHIRT GALLERY */
+
+.main-img{
+    width:100%;
+    height:340px;
+    object-fit:cover;
+}
+
+.gallery{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    padding:10px;
+}
+
+.gallery img{
+    width:60px;
+    height:60px;
+    object-fit:cover;
+    border:1px solid #333;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.gallery img:hover{
+    border-color:white;
+    transform:scale(1.05);
+}
+
+/* SIZE BUTTONS */
+
+.sizes{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    padding:0 15px 20px;
+}
+
+.sizes button{
+    width:45px;
+    height:45px;
+    background:transparent;
+    color:white;
+    border:1px solid #555;
+    cursor:pointer;
+    transition:.3s;
+    font-weight:bold;
+}
+
+.sizes button:hover{
+    background:white;
+    color:black;
+    border-color:white;
+}
