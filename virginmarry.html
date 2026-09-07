@@ -6,7 +6,36 @@
 <title>Virgin Mary Tee | Saint Omen</title>
 <link rel="stylesheet" href="style.css">
 </head>
+<div id="viewer" class="image-viewer">
 
+    <span class="viewer-close" onclick="closeViewer()">✕</span>
+
+    <img id="viewerImage" src="h1.jpg">
+
+</div>
+<div id="notifyPopup" class="notify-popup">
+
+    <div class="notify-box">
+
+        <span class="close-notify" onclick="closeNotify()">✕</span>
+
+        <h2>JOIN THE WAITLIST</h2>
+
+        <p>Be first to know about the next Saint Omen drop.</p>
+
+        <input type="text" id="notifyName" placeholder="Full Name">
+
+        <input type="tel" id="notifyPhone" placeholder="WhatsApp Number">
+
+        <input type="email" id="notifyEmail" placeholder="Email (Optional)">
+
+        <button class="cart-btn" onclick="sendNotify()">
+            JOIN WAITLIST
+        </button>
+
+    </div>
+
+</div>
 <body>
 
 <nav>
@@ -14,18 +43,17 @@
     <a href="cart.html" class="cart-link">🛒</a>
 </nav>
 
-<div class="product-page">
-
-    <img id="mainProduct" src="h1.jpg" class="product-main">
-
-    <div class="gallery-large">
-        <img src="h1.jpg" onclick="changeImage('h1.jpg',this)" class="active-thumb">
-        <img src="h2.png" onclick="changeImage('h2.png',this)">
-        <img src="h3.png" onclick="changeImage('h3.png',this)">
-    </div>
-
+<div class="gallery-large">
+    <img src="h1.jpg" onclick="changeImage('h1.jpg',this)" class="active-thumb">
+    <img src="h2.png" onclick="changeImage('h2.png',this)">
+    <img src="h3.png" onclick="changeImage('h3.png',this)">
+    <img src="h4.jpg" onclick="changeImage('h4.jpg',this)">
+	<img id="mainProduct" src="h1.jpg" class="product-main" onclick="openViewer()">
+</div>
     <h1>VIRGIN MARY TEE</h1>
-
+<button id="favBtn" class="heart-btn" onclick="toggleFavorite()">
+♡
+</button>
     <p class="price">R300</p>
 
     <p class="description">
@@ -41,6 +69,8 @@
 
     <button class="cart-btn" onclick="addToCart()">
         ADD TO CART
+		<button class="notify-btn" onclick="openNotify()">
+    NOTIFY ME FOR NEXT DROP
     </button>
 
 </div>
@@ -90,6 +120,68 @@ size:selectedSize
 localStorage.setItem("cart",JSON.stringify(cart));
 
 window.location.href="cart.html";
+let isFav = localStorage.getItem("virginMaryFav") === "true";
+
+updateHeart();
+
+function toggleFavorite(){
+
+    isFav = !isFav;
+
+    localStorage.setItem("virginMaryFav", isFav);
+
+    updateHeart();
+
+}
+
+function updateHeart(){
+
+    document.getElementById("favBtn").innerHTML = isFav ? "❤️" : "♡";
+
+}
+function openViewer(){
+
+    document.getElementById("viewer").style.display="flex";
+
+    document.getElementById("viewerImage").src=document.getElementById("mainProduct").src;
+
+}
+
+function closeViewer(){
+
+    document.getElementById("viewer").style.display="none";
+
+}
+function openNotify(){
+
+    document.getElementById("notifyPopup").style.display="flex";
+
+}
+
+function closeNotify(){
+
+    document.getElementById("notifyPopup").style.display="none";
+
+}
+
+function sendNotify(){
+
+    let name=document.getElementById("notifyName").value;
+    let phone=document.getElementById("notifyPhone").value;
+    let email=document.getElementById("notifyEmail").value;
+
+    let message=`Hi Saint Omen,%0A%0A`;
+    message+=`I'd like to join the waitlist.%0A%0A`;
+    message+=`Name: ${name}%0A`;
+    message+=`Phone: ${phone}%0A`;
+    message+=`Email: ${email}%0A`;
+    message+=`Product: Virgin Mary Tee`;
+
+    window.open("https://wa.me/27766153367?text="+message);
+
+    closeNotify();
+
+}
 
 }
 
@@ -104,7 +196,7 @@ window.location.href="cart.html";
 
 <h3>BLACK CAMO TEE</h3>
 
-<p>R250</p>
+<p>R300</p>
 
 </a>
 

@@ -16,8 +16,10 @@
 <h2 class="collection-title">YOUR CART</h2>
 
 <div id="cartItems"></div>
+<button class="cart-btn" onclick="window.location.href='checkout.html'">
+CHECKOUT
+</button>
 
-<button class="cart-btn" onclick="checkout()">CHECKOUT ON WHATSAPP</button>
 
 <script>
 
@@ -75,7 +77,7 @@ function checkout(){
 
     message += `%0ATotal: R${total}`;
 
-    window.open("https://wa.me/27833850397?text=" + message);
+    window.open("https://wa.me/27766153367?text=" + message);
 
 }
 
@@ -84,6 +86,8 @@ function checkout(){
     <a href="index.html">🏠<span>Home</span></a>
     <a href="tshirts.html">👕<span>Shop</span></a>
     <a href="cart.html">🛒<span>Cart</span></a>
+	<a href="about.html">ℹ️<span>About</span></a>
+	<a href="contact.html">📞<span>Contact</span></a>
 </div>
 
 </body>

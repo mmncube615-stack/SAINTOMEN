@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout | Saint Omen</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+<div class="logo">SAINT OMEN</div>
+</nav>
+
+<section class="checkout-page">
+
+<h1>CHECKOUT</h1>
+
+<form id="checkoutForm">
+
+<input type="text" id="name" placeholder="Full Name" required>
+
+<input type="tel" id="phone" placeholder="Phone Number" required>
+
+<textarea id="address" placeholder="Delivery Address" required></textarea>
+
+<select id="delivery">
+<option>Collection</option>
+<option>PAXI Delivery</option>
+</select>
+
+<button type="submit" class="cart-btn">
+PLACE ORDER
+</button>
+
+</form>
+
+</section>
+
+document.getElementById("checkoutForm").addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    localStorage.setItem("customerName", document.getElementById("name").value);
+    localStorage.setItem("customerPhone", document.getElementById("phone").value);
+    localStorage.setItem("customerAddress", document.getElementById("address").value);
+    localStorage.setItem("deliveryMethod", document.getElementById("delivery").value);
+
+    window.location.href = "confirmation.html";
+
+});
+</script>
+
+</body>
+</html>
