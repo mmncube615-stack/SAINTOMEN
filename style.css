@@ -402,60 +402,63 @@ padding:10px;
     color:#777;
     letter-spacing:2px;
 }
-/* ORDER CONFIRMATION */
+
+}/* ORDER CONFIRMATION */
 
 .confirmation-page{
-padding:70px 22px;
-min-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:90px 20px;
 }
 
 .checkmark{
-width:90px;
-height:90px;
-border-radius:50%;
-border:2px solid white;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:46px;
-margin-bottom:25px;
+    width:90px;
+    height:90px;
+    border:2px solid white;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:44px;
+    color:white;
+    margin-bottom:25px;
 }
 
 .confirmation-page h1{
-letter-spacing:4px;
-font-size:32px;
-margin-bottom:15px;
+    font-size:36px;
+    letter-spacing:4px;
+    margin-bottom:10px;
 }
 
 .confirm-text{
-color:#aaa;
-margin-bottom:30px;
+    color:#bdbdbd;
+    margin-bottom:30px;
 }
 
 .order-card{
-background:#111;
-padding:22px;
-border-radius:12px;
-width:100%;
-max-width:380px;
-text-align:left;
-margin-bottom:30px;
-border:1px solid #222;
+    width:100%;
+    max-width:380px;
+    background:#111;
+    border:1px solid #2a2a2a;
+    border-radius:16px;
+    padding:24px;
+    margin-bottom:25px;
+    text-align:left;
 }
 
 .order-card p{
-margin:12px 0;
-color:#ddd;
+    color:white;
+    margin:12px 0;
 }
 
 .order-card h3{
-margin-top:20px;
-text-align:center;
+    margin-top:20px;
+    text-align:center;
+    color:white;
 }
 /* CONTACT PAGE */
 

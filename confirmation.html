@@ -9,37 +9,37 @@
 
 <body>
 
-<div class="confirmation-page">
+<nav>
+    <div class="logo">SAINT OMEN</div>
+</nav>
 
-<div class="checkmark">✓</div>
+<section class="confirmation-page">
 
-<h1>ORDER CONFIRMED</h1>
+    <div class="checkmark">✓</div>
 
-<p class="confirm-text">
-Thank you for choosing Saint Omen.
-</p>
+    <h1>ORDER CONFIRMED</h1>
 
-<div class="order-card">
+    <p class="confirm-text">
+        Thank you for choosing Saint Omen.
+    </p>
 
-<p><strong>Order:</strong> <span id="orderNumber"></span></p>
+    <div class="order-card">
 
-<div id="orderItems"></div>
+        <p><strong>Order:</strong> <span id="orderNumber"></span></p>
 
-<h3 id="orderTotal"></h3>
+        <div id="orderItems"></div>
 
-</div>
+        <h3 id="orderTotal"></h3>
 
-<button class="cart-btn" onclick="continueWhatsApp()">
-CONTINUE TO WHATSAPP
-</button>
+    </div>
 
-</div>
+    <button class="cart-btn" onclick="continueWhatsApp()">
+        CONTINUE TO WHATSAPP
+    </button>
 
-let customerName = localStorage.getItem("customerName");
-let customerPhone = localStorage.getItem("customerPhone");
-let customerAddress = localStorage.getItem("customerAddress");
-let deliveryMethod = localStorage.getItem("deliveryMethod");
+</section>
 
+<script>
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 let order = Math.floor(1000 + Math.random() * 9000);
@@ -53,7 +53,7 @@ cart.forEach(item => {
     total += item.price;
 
     items.innerHTML += `
-    <p>${item.name} (${item.size}) — R${item.price}</p>
+        <p>${item.name} (${item.size}) — R${item.price}</p>
     `;
 });
 
@@ -62,24 +62,20 @@ document.getElementById("orderTotal").innerText = "Total: R" + total;
 function continueWhatsApp(){
 
     let message = `Hi Saint Omen,%0A%0A`;
-
-    message += `Name: ${customerName}%0A`;
-    message += `Phone: ${customerPhone}%0A`;
-    message += `Delivery: ${deliveryMethod}%0A`;
-    message += `Address: ${customerAddress}%0A%0A`;
-
     message += `Order: SO-${order}%0A%0A`;
 
-    cart.forEach(item => {
+    cart.forEach(item=>{
         message += `- ${item.name} (${item.size}) - R${item.price}%0A`;
     });
 
     message += `%0ATotal: R${total}`;
 
-    window.open("https://wa.me/27766153367?text=" + message);
-
     localStorage.removeItem("cart");
+
+    window.location.href =
+    "https://wa.me/27766153367?text=" + message;
 }
+</script>
 
 </body>
 </html>
